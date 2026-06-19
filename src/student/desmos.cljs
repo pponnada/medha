@@ -29,6 +29,18 @@
                 (resolve false)))
         (.appendChild (.-head js/document) script)))))
 
+(defn- resize-later! [calc]
+  (let [schedule (fn schedule [n]
+                    (if (pos? n)
+                      (js/requestAnimationFrame
+                        (fn []
+                          (schedule (dec n))))
+                      (when calc
+                        (try
+                          (.resize calc)
+                          (catch :default _)))))]
+    (schedule 2)))
+
 (defn load! []
   (cond
     (available?)
@@ -76,6 +88,7 @@
                           (js/console.warn "Desmos state parse error:" e))))
                     (doseq [expr-id readonly-ids]
                       (.setExpression calc (clj->js {:id expr-id :readonly true})))
+                    (resize-later! calc)
                     (swap! calculators assoc element-id calc)
                     calc)
                   (catch :default e
