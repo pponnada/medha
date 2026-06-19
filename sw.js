@@ -1,4 +1,4 @@
-const CACHE_NAME = 'medha-v10';
+const CACHE_NAME = 'medha-v12';
 
 function isDesmosScript(url) {
   return url.includes('desmos.com/api') && url.includes('calculator.js');

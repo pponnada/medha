@@ -231,7 +231,7 @@
                                                :pending-review false})))}
                 "Capture my work"]
                [:div {:style {:padding "0.75rem 0" :color "#6c757d" :font-size "0.9rem"}}
-                "Loading Desmos..."])])})))
+                "Loading Desmos..."])])])})))
 
 ;; ── Confidence Rating ────────────────────────────────────────────────────────
 
