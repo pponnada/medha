@@ -1,0 +1,12 @@
+[{:skill/id    :skill/fraction-comparison
+  :skill/name  "Fraction Comparison"
+  :version     "1.0.0"}
+ {:skill/id    :skill/pattern-recognition
+  :skill/name  "Pattern Recognition"
+  :version     "1.0.0"}
+ {:skill/id    :skill/geometric-reasoning
+  :skill/name  "Geometric Reasoning"
+  :version     "1.0.0"}
+ {:skill/id    :skill/algebraic-thinking
+  :skill/name  "Algebraic Thinking"
+  :version     "1.0.0"}]

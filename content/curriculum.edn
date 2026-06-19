@@ -1,0 +1,160 @@
+{:curriculum/id          :curriculum/fractions-grade-5
+ :version                "1.0.0"
+ :curriculum/title       "Fractions — Grade 5"
+ :curriculum/description "Developing fraction sense through exploration and area models."
+ :curriculum/skills      [:skill/fraction-comparison :skill/pattern-recognition]
+
+ :curriculum/chapters
+ [{:chapter/id          :chapter/equivalent-fractions
+   :chapter/title       "Equivalent Fractions"
+   :chapter/description "Discover that different fractions can represent the same quantity."
+   :chapter/lessons
+
+   [{:lesson/id               :lesson/intro-equivalent
+     :version                 "1.0.0"
+     :lesson/title            "Are They the Same?"
+     :lesson/template         :template/area-model
+     :lesson/mastery-mode     :soft
+     :lesson/mastery-threshold 70
+     :lesson/skills           [:skill/fraction-comparison :skill/pattern-recognition]
+     :lesson/heuristics       [:heuristic/draw-a-picture]
+
+     :lesson/hints
+     {:question/eq-001
+      ["Think about what 'equal' means in mathematics."
+       "Try drawing two rectangles of the same size and shape."
+       "Shade one half of the first rectangle."
+       "Worked example: 1/2 means 1 part out of 2 equal parts. 2/4 means 2 parts out of 4 equal parts. If we shade them, they cover the same area."]
+
+      :question/eq-004
+      ["What does the numerator tell you?"
+       "What does the denominator tell you?"
+       "If you double both numbers in a fraction, what happens to its value?"
+       "Worked example: 1/2 × (2/2) = 2/4. Multiplying by 2/2 is the same as multiplying by 1, so the value stays the same."]}
+
+     :lesson/phases
+     {:understand
+      {:prompts ["What do you know?"
+                 "What are you trying to find?"
+                 "Can you restate the problem?"]
+       :questions
+       [{:question/id   :question/eq-001
+         :question/text "Look at these two fractions: 1/2 and 2/4. What do you notice?"
+         :question/type :observation-chips
+         :chips         ["They look different"
+                         "They might be equal"
+                         "The denominators are different"
+                         "I see a relationship"
+                         "I'm not sure"
+                         "One uses bigger numbers"]}]}
+
+      :plan
+      {:prompts ["Can you draw a picture?"
+                 "Can you make a table?"
+                 "Do you notice a pattern?"]
+       :questions
+       [{:question/id     :question/eq-002
+         :question/text   "Which strategy would best help you compare 1/2 and 2/4?"
+         :question/type   :multiple-choice
+         :options         ["Draw an area model"
+                           "Count the digits"
+                           "Add the fractions"
+                           "Compare the numerators only"]
+         :correct-answer  "Draw an area model"}]}
+
+      :execute
+      {:prompts ["Try your plan."]
+       :questions
+       [{:question/id             :question/eq-003
+         :question/text           "The two bars below represent 1/2 (top) and 2/4 (bottom). What do you observe about the shaded areas?"
+         :question/type           :desmos
+         :desmos/mission          "Observe the shaded regions. The top bar shows 1/2 shaded. The bottom bar shows 2/4 shaded. What do you notice?"
+         :desmos/state            "{\"version\":9,\"graph\":{\"viewport\":{\"xmin\":-0.5,\"ymin\":-0.5,\"xmax\":4.5,\"ymax\":3}},\"expressions\":{\"list\":[{\"type\":\"expression\",\"id\":\"outline1\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(0,1.6\\\\right),\\\\left(4,1.6\\\\right),\\\\left(4,2.6\\\\right),\\\\left(0,2.6\\\\right)\\\\right)\",\"color\":\"#2d70b3\",\"fill\":true,\"fillOpacity\":\"0.15\"},{\"type\":\"expression\",\"id\":\"shade1\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(0,1.6\\\\right),\\\\left(2,1.6\\\\right),\\\\left(2,2.6\\\\right),\\\\left(0,2.6\\\\right)\\\\right)\",\"color\":\"#c74440\",\"fill\":true,\"fillOpacity\":\"0.7\"},{\"type\":\"expression\",\"id\":\"outline2\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(0,0\\\\right),\\\\left(4,0\\\\right),\\\\left(4,1\\\\right),\\\\left(0,1\\\\right)\\\\right)\",\"color\":\"#2d70b3\",\"fill\":true,\"fillOpacity\":\"0.15\"},{\"type\":\"expression\",\"id\":\"shade2a\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(0,0\\\\right),\\\\left(1,0\\\\right),\\\\left(1,1\\\\right),\\\\left(0,1\\\\right)\\\\right)\",\"color\":\"#388c46\",\"fill\":true,\"fillOpacity\":\"0.7\"},{\"type\":\"expression\",\"id\":\"shade2b\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(1,0\\\\right),\\\\left(2,0\\\\right),\\\\left(2,1\\\\right),\\\\left(1,1\\\\right)\\\\right)\",\"color\":\"#388c46\",\"fill\":true,\"fillOpacity\":\"0.7\"},{\"type\":\"expression\",\"id\":\"div1\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(2,1.6\\\\right),\\\\left(2,2.6\\\\right)\\\\right)\",\"color\":\"#ffffff\"},{\"type\":\"expression\",\"id\":\"div2a\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(1,0\\\\right),\\\\left(1,1\\\\right)\\\\right)\",\"color\":\"#ffffff\"},{\"type\":\"expression\",\"id\":\"div2b\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(2,0\\\\right),\\\\left(2,1\\\\right)\\\\right)\",\"color\":\"#ffffff\"},{\"type\":\"expression\",\"id\":\"div2c\",\"latex\":\"\\\\operatorname{polygon}\\\\left(\\\\left(3,0\\\\right),\\\\left(3,1\\\\right)\\\\right)\",\"color\":\"#ffffff\"}]}}"
+         :desmos/readonly-expressions ["outline1" "shade1" "outline2" "shade2a" "shade2b" "div1" "div2a" "div2b" "div2c"]}
+
+        {:question/id   :question/eq-004
+         :question/text "Complete the sentence about what you observed."
+         :question/type :sentence-starter
+         :starter       "I think 1/2 and 2/4 are equal because..."}]}
+
+      :look-back
+      {:prompts ["Can you solve it another way?"
+                 "Will this always work?"
+                 "What changed? What stayed the same?"]
+       :questions
+       [{:question/id   :question/eq-005
+         :question/text "Find another fraction that equals 1/2. Write it below."
+         :question/type :short-text}
+
+        {:question/id    :question/eq-006
+         :question/text  "If you multiply both the numerator and denominator of any fraction by the same number, will you always get an equivalent fraction?"
+         :question/type  :multiple-choice
+         :options        ["Yes, always"
+                          "No, never"
+                          "Sometimes, but not always"
+                          "Only when the number is 2"]
+         :correct-answer "Yes, always"}]}}}
+
+    {:lesson/id               :lesson/comparing-fractions
+     :version                 "1.0.0"
+     :lesson/title            "Which is Bigger?"
+     :lesson/template         :template/number-line
+     :lesson/mastery-mode     :soft
+     :lesson/mastery-threshold 70
+     :lesson/skills           [:skill/fraction-comparison]
+     :lesson/heuristics       [:heuristic/look-for-pattern]
+
+     :lesson/hints
+     {:question/cf-001
+      ["Think about what each fraction represents."
+       "Draw a number line from 0 to 1."
+       "Mark where each fraction falls on the line."
+       "Worked example: 1/4 is closer to 0, and 3/4 is closer to 1, so 3/4 > 1/4."]}
+
+     :lesson/phases
+     {:understand
+      {:prompts ["What do you know about these fractions?"
+                 "What does the denominator tell you?"]
+       :questions
+       [{:question/id   :question/cf-001
+         :question/text "You have two fractions: 1/4 and 3/4. Without calculating, which do you think is bigger?"
+         :question/type :observation-chips
+         :chips         ["1/4 is bigger"
+                         "3/4 is bigger"
+                         "They are equal"
+                         "I need more information"
+                         "The denominators are the same"]}]}
+
+      :plan
+      {:prompts ["How could you check your prediction?"
+                 "What tool would help?"]
+       :questions
+       [{:question/id    :question/cf-002
+         :question/text  "How would you verify which fraction is larger?"
+         :question/type  :multiple-choice
+         :options        ["Use a number line"
+                          "Add the numerators"
+                          "Multiply the fractions"
+                          "Look at the denominators only"]
+         :correct-answer "Use a number line"}]}
+
+      :execute
+      {:prompts ["Try your plan."]
+       :questions
+       [{:question/id   :question/cf-003
+         :question/text "Which fraction is larger? Explain your reasoning."
+         :question/type :sentence-starter
+         :starter       "3/4 is larger than 1/4 because..."}]}
+
+      :look-back
+      {:prompts ["Will this always work when denominators are the same?"
+                 "What if the denominators were different?"]
+       :questions
+       [{:question/id    :question/cf-004
+         :question/text  "When two fractions have the same denominator, which is larger?"
+         :question/type  :multiple-choice
+         :options        ["The one with the larger numerator"
+                          "The one with the smaller numerator"
+                          "They are always equal"
+                          "It depends on the denominator"]
+         :correct-answer "The one with the larger numerator"}]}}}]}]}

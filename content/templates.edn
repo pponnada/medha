@@ -1,0 +1,31 @@
+[{:template/id               :template/area-model
+  :template/name             "Area Model Lesson"
+  :template/phase-structure  [:understand :plan :execute :look-back]
+  :template/response-types   [:observation-chips :multiple-choice :short-text :desmos :sentence-starter]
+  :template/desmos-required  true
+  :template/default-heuristics [:heuristic/draw-a-picture :heuristic/make-a-table]
+  :version "1.0.0"}
+
+ {:template/id               :template/number-line
+  :template/name             "Number Line Lesson"
+  :template/phase-structure  [:understand :plan :execute :look-back]
+  :template/response-types   [:observation-chips :multiple-choice :sentence-starter :desmos]
+  :template/desmos-required  true
+  :template/default-heuristics [:heuristic/look-for-pattern]
+  :version "1.0.0"}
+
+ {:template/id               :template/pattern
+  :template/name             "Pattern Lesson"
+  :template/phase-structure  [:understand :plan :execute :look-back]
+  :template/response-types   [:observation-chips :sentence-starter :short-text :multiple-choice]
+  :template/desmos-required  false
+  :template/default-heuristics [:heuristic/make-a-table :heuristic/look-for-pattern]
+  :version "1.0.0"}
+
+ {:template/id               :template/counting
+  :template/name             "Counting Lesson"
+  :template/phase-structure  [:understand :plan :execute :look-back]
+  :template/response-types   [:observation-chips :multiple-choice :short-text]
+  :template/desmos-required  false
+  :template/default-heuristics [:heuristic/make-a-table]
+  :version "1.0.0"}]

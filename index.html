@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="theme-color" content="#1e3a5f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Medha">
+  <title>Medha</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Local config — set keys in config.js -->
+  <script src="config.js"></script>
+
+  <!-- React 17 UMD bundles — must load before scittle.reagent.js -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <!-- Scittle core -->
+  <script src="https://cdn.jsdelivr.net/npm/scittle@0.6.19/dist/scittle.js"
+          type="application/javascript"></script>
+  <!-- Reagent (React wrapper) — requires React globals above -->
+  <script src="https://cdn.jsdelivr.net/npm/scittle@0.6.19/dist/scittle.reagent.js"
+          type="application/javascript"></script>
+
+  <!-- App scripts — loaded in strict dependency order -->
+  <script type="application/x-scittle" src="src/state.cljs"></script>
+  <script type="application/x-scittle" src="src/db.cljs"></script>
+  <script type="application/x-scittle" src="src/router.cljs"></script>
+  <script type="application/x-scittle" src="src/curriculum.cljs"></script>
+  <script type="application/x-scittle" src="src/student/timer.cljs"></script>
+  <script type="application/x-scittle" src="src/student/desmos.cljs"></script>
+  <script type="application/x-scittle" src="src/student/hints.cljs"></script>
+  <script type="application/x-scittle" src="src/student/responses.cljs"></script>
+  <script type="application/x-scittle" src="src/student/lesson.cljs"></script>
+  <script type="application/x-scittle" src="src/student/export.cljs"></script>
+  <script type="application/x-scittle" src="src/app.cljs"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="loading-view">
+      <div class="spinner"></div>
+      <p>Loading Medha...</p>
+    </div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js', { scope: './' })
+          .catch(function (err) {
+            console.warn('Service worker registration failed:', err);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

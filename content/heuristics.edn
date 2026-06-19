@@ -1,0 +1,38 @@
+[{:heuristic/id         :heuristic/draw-a-picture
+  :heuristic/name       "Draw a Picture"
+  :heuristic/prompts    ["Can you represent this visually?"
+                         "What would this look like drawn out?"
+                         "Could a diagram help?"]
+  :heuristic/hints      ["Start with a simple shape"
+                         "Label the important parts"
+                         "Use shading to highlight key features"]
+  :heuristic/reflection ["Did the picture help you see the problem differently?"
+                          "What did you notice after drawing?"
+                          "Could you improve your diagram?"]}
+
+ {:heuristic/id         :heuristic/make-a-table
+  :heuristic/name       "Make a Table"
+  :heuristic/prompts    ["Could you organise this information in a table?"
+                         "What patterns might a table reveal?"]
+  :heuristic/hints      ["What are the two things you are comparing?"
+                         "Start with small values and work upward"]
+  :heuristic/reflection ["What pattern did you find?"
+                          "Does the pattern continue indefinitely?"]}
+
+ {:heuristic/id         :heuristic/look-for-pattern
+  :heuristic/name       "Look for a Pattern"
+  :heuristic/prompts    ["Do you notice anything repeating?"
+                         "What changes? What stays the same?"]
+  :heuristic/hints      ["Try a few concrete examples"
+                         "Write down what you observe each time"]
+  :heuristic/reflection ["Can you describe the pattern in words?"
+                          "Will it always work? How do you know?"]}
+
+ {:heuristic/id         :heuristic/work-backwards
+  :heuristic/name       "Work Backwards"
+  :heuristic/prompts    ["What is the end result?"
+                         "What step would produce that result?"]
+  :heuristic/hints      ["Start from what you know the answer should be"
+                         "Reverse each operation"]
+  :heuristic/reflection ["Did working backwards make it easier?"
+                          "Could you solve it forwards now?"]}]
