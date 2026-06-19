@@ -9,8 +9,9 @@
   <meta name="apple-mobile-web-app-title" content="Medha">
   <title>Medha</title>
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
   <link rel="stylesheet" href="style.css">
 
   <!-- Local config — set keys in config.js -->
@@ -50,7 +51,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('sw.js', { scope: './' })
+        navigator.serviceWorker.register('./sw.js', { scope: './' })
           .catch(function (err) {
             console.warn('Service worker registration failed:', err);
           });

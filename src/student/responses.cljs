@@ -188,32 +188,13 @@
        (fn [q]
          (set-response! (:question/id q)
                         {:value nil :graded-by nil :pending-review false})
-         [:div.question-body
-          [:p.question-text (:question/text q)]
-          [:div.desmos-mission
-           [:span.mission-label "Mission: "]
-           (:desmos/mission q)]
-          (case @load-state
-            :loading
-            [:div.desmos-container
-             {:id    elem-id
-              :style {:width "100%" :height "400px"}}]
-
-            :ok
-            [:div
-             [:div.desmos-container
-              {:id    elem-id
-               :style {:width "100%" :height "400px"}}]
-             [:button.btn-secondary
-              {:on-click (fn []
-                           (let [state (desmos/get-state elem-id)]
-                             (set-response! (:question/id q)
-                                            {:value          state
-                                             :graded-by      nil
-                                             :pending-review false})))}
-              "Capture my work"]]
-
-            :failed
+          [:div.question-body
+           [:p.question-text (:question/text q)]
+           [:div.desmos-mission
+            [:span.mission-label "Mission: "]
+            (:desmos/mission q)]
+          (cond
+            (= @load-state :failed)
             [:div.desmos-fallback
              {:style {:background "#fef9c3"
                       :border     "1px solid #fde047"
@@ -233,7 +214,24 @@
                             (set-response! (:question/id q)
                                            {:value          (.. e -target -value)
                                             :graded-by      nil
-                                            :pending-review true}))}]])])})))
+                                            :pending-review true}))}]]
+
+            :else
+            [:div
+             [:div.desmos-container
+              {:id    elem-id
+               :style {:width "100%" :height "400px"}}]
+             (if (= @load-state :ok)
+               [:button.btn-secondary
+                {:on-click (fn []
+                             (let [state (desmos/get-state elem-id)]
+                               (set-response! (:question/id q)
+                                              {:value          state
+                                               :graded-by      nil
+                                               :pending-review false})))}
+                "Capture my work"]
+               [:div {:style {:padding "0.75rem 0" :color "#6c757d" :font-size "0.9rem"}}
+                "Loading Desmos..."])])})))
 
 ;; ── Confidence Rating ────────────────────────────────────────────────────────
 
